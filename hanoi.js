@@ -57,6 +57,7 @@ HanoiGame.prototype.run = function(completionCallback) {
       }
     } else {
       console.log("Bad Move");
+      this.run(completionCallback);
     }
   }.bind(this));
 };
