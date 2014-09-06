@@ -51,14 +51,14 @@ var reader = readline.createInterface({
   output: process.stdout
 });
 
-var addNumbers = function(sum, numsLeft, completionCallback) {
+var addNumbers = function (sum, numsLeft, completionCallback) {
   if (numsLeft > 0) {
-    reader.question("Enter a number", function(answer) {
-      var number = parseInt(answer);
+    reader.question("Enter a number", function (answer) {
+      var number = parseInt(answer, 10);
       sum += number;
       console.log(sum);
       addNumbers(sum, numsLeft - 1, completionCallback);
-    })
+    });
   } else if (numsLeft === 0) {
     completionCallback(sum);
     reader.close();
@@ -102,12 +102,12 @@ function innerBubbleSortLoop (arr, i, madeAnySwaps, outerBubbleSortLoop) {
     askIfLessThan(arr[i], arr[i + 1], function(isLessThan) {
       if (!isLessThan) {
         var t1 = arr[i];
-        var t2 = arr[i+1];
+        var t2 = arr[i + 1];
         arr[i] = t2;
-        arr[i+1] = t1;
+        arr[i + 1] = t1;
         madeAnySwaps = true;
       } 
-      innerBubbleSortLoop(arr, i+1, madeAnySwaps, outerBubbleSortLoop);
+      innerBubbleSortLoop(arr, i + 1, madeAnySwaps, outerBubbleSortLoop);
     });
   }
   

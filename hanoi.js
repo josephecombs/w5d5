@@ -20,7 +20,7 @@ HanoiGame.prototype.isValidMove = function(startTowerIdx, endTowerIdx) {
   if (this.towers[endTowerIdx].length === 0) {
     return true;
   }
-  return (this.towers[startTowerIdx][this.towers[startTowerIdx].length -1] 
+  return (this.towers[startTowerIdx][this.towers[startTowerIdx].length - 1] 
     < this.towers[endTowerIdx][this.towers[endTowerIdx].length - 1]);
 };
 
@@ -46,6 +46,7 @@ HanoiGame.prototype.promptMove = function(callback) {
 };
 
 HanoiGame.prototype.run = function(completionCallback) {
+  
   this.promptMove(function(startTowerIdx, endTowerIdx) {
     if (this.isValidMove(startTowerIdx, endTowerIdx)) {
       this.move(startTowerIdx, endTowerIdx);
