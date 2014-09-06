@@ -1,76 +1,73 @@
-// function Clock () {
-//   var hours;
-//   var minutes;
-//   var seconds;
-// }
-//
-// Clock.TICK = 5000;
-//
-// Clock.prototype.printTime = function () {
-//   console.log(this.hours) + ' ' +
-//   console.log(this.minutes) + ' ' +
-//   console.log(this.seconds);
-//
-// };
-//
-// Clock.prototype.run = function () {
-//   var date = new Date();
-//   // 1. Set the currentTime.
-//   this.hours = date.getHours();
-//   this.minutes = date.getMinutes();
-//   this.seconds = date.getSeconds();
-//   // 2. Call printTime.
-//   this.printTime();
-//   // 3. Schedule the tick interval.
-//   setInterval(this._tick.bind(this), Clock.TICK);
-// };
-//
-// Clock.prototype._tick = function () {
-//   // 1. Increment the currentTime.
-//   this.seconds += 5;
-//   if (this.seconds > 60) {
-//     this.minutes +=1;
-//     this.seconds -= 60;
-//     if (this.minutes > 60) {
-//       this.hours += 1;
-//       this.minutes -= 60;
-//       if (this.hours > 24) {
-//         this.hours -= 24;
-//       }
-//     }
-//   }
-//
-//   // 2. Call printTime.
-//
-//   this.printTime();
-// };
-//
-// // clock = new Clock();
-// // clock.run();
-//
-// var readline = require('readline');
-// var reader = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout
-// });
-//
-// var addNumbers = function(sum, numsLeft, completionCallback) {
-//   if (numsLeft > 0) {
-//     reader.question("Enter a number", function(answer) {
-//       var number = parseInt(answer);
-//       sum += number;
-//       console.log(sum);
-//       addNumbers(sum, numsLeft - 1, completionCallback);
-//     })
-//   } else if (numsLeft === 0) {
-//     completionCallback(sum);
-//     reader.close();
-//   }
-// };
+function Clock () {
+}
 
-// addNumbers(0, 3, function (sum) {
-//   console.log("Total Sum: " + sum);
-// });
+Clock.TICK = 5000;
+
+Clock.prototype.printTime = function () {
+  console.log(this.hours) + ' ' +
+  console.log(this.minutes) + ' ' +
+  console.log(this.seconds);
+
+};
+
+Clock.prototype.run = function () {
+  var date = new Date();
+  // 1. Set the currentTime.
+  this.hours = date.getHours();
+  this.minutes = date.getMinutes();
+  this.seconds = date.getSeconds();
+  // 2. Call printTime.
+  this.printTime();
+  // 3. Schedule the tick interval.
+  setInterval(this._tick.bind(this), Clock.TICK);
+};
+
+Clock.prototype._tick = function () {
+  // 1. Increment the currentTime.
+  this.seconds += 5;
+  if (this.seconds > 60) {
+    this.minutes +=1;
+    this.seconds -= 60;
+    if (this.minutes > 60) {
+      this.hours += 1;
+      this.minutes -= 60;
+      if (this.hours > 24) {
+        this.hours -= 24;
+      }
+    }
+  }
+
+  // 2. Call printTime.
+
+  this.printTime();
+};
+
+// clock = new Clock();
+// clock.run();
+
+var readline = require('readline');
+var reader = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+var addNumbers = function(sum, numsLeft, completionCallback) {
+  if (numsLeft > 0) {
+    reader.question("Enter a number", function(answer) {
+      var number = parseInt(answer);
+      sum += number;
+      console.log(sum);
+      addNumbers(sum, numsLeft - 1, completionCallback);
+    })
+  } else if (numsLeft === 0) {
+    completionCallback(sum);
+    reader.close();
+  }
+};
+
+addNumbers(0, 3, function (sum) {
+  console.log("Total Sum: " + sum);
+});
 
 var readline = require("readline");
 
